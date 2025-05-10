@@ -3,10 +3,15 @@
 import { useRef, useState, useEffect } from "react"
 import { Canvas, useFrame } from "@react-three/fiber"
 import { PerspectiveCamera, Environment } from "@react-three/drei"
-// Use a type-safe import for Three.js
 import * as THREE from "three"
 
-function Bottle({ animationComplete, setAnimationComplete }) {
+// Define proper types for the component props
+interface BottleProps {
+  animationComplete: boolean;
+  setAnimationComplete: (value: boolean) => void;
+}
+
+function Bottle({ animationComplete, setAnimationComplete }: BottleProps) {
   const bottleRef = useRef<THREE.Group>(null)
   const marbleRef = useRef<THREE.Mesh>(null)
   const [bottleTilted, setBottleTilted] = useState(false)
@@ -151,13 +156,23 @@ function Scene({ animationComplete, setAnimationComplete }) {
   )
 }
 
-export function BottleCanvas({ animationComplete, setAnimationComplete }) {
+// Define proper types for the BottleCanvas component props
+interface BottleCanvasProps {
+  animationComplete: boolean;
+  setAnimationComplete: (value: boolean) => void;
+}
+
+export function BottleCanvas({ animationComplete, setAnimationComplete }: BottleCanvasProps) {
   return (
-    <div className="w-full h-full">
-      <Canvas shadows>
-        <Scene animationComplete={animationComplete} setAnimationComplete={setAnimationComplete} />
-      </Canvas>
-    </div>
+    <Canvas shadows className="w-full h-full">
+      <PerspectiveCamera makeDefault position={[0, 0, 5]} fov={50} />
+      <ambientLight intensity={0.5} />
+      <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} intensity={1} castShadow />
+      <Bottle animationComplete={animationComplete} setAnimationComplete={setAnimationComplete} />
+      <Environment preset="city" />
+    </Canvas>
   )
 }
+
+
 
