@@ -189,7 +189,7 @@ export default function Home() {
     if (character.name === "RAJ THARUN") {
       videoPath = "/assets/videos/raj-tharun.mov";
     } else if (character.name === "ANISH") {
-      videoPath = "/assets/videos/anish.mov";
+      videoPath = "/assets/videos/paldabba.mov";
     } else if (character.name === "KISHORE DS") {
       videoPath = "/assets/videos/kishore.mov";
     } else if (character.name === "BHARATH SEENI") {
@@ -203,7 +203,7 @@ export default function Home() {
     } else if (character.name === "AARI") {
       videoPath = "/assets/videos/aari.mov";
     } else if (character.name === "PRASANNA") {
-      videoPath = "/assets/videos/prasanna.mov";
+      videoPath = "/assets/videos/prasanna.mp4";
     } else if (character.name === "SUNIL") {
       videoPath = "/assets/videos/sunil.mov";
     }
