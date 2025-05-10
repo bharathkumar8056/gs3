@@ -1,8 +1,9 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react"
+import { useRef, useState, useEffect } from "react"
 import { Canvas, useFrame } from "@react-three/fiber"
 import { PerspectiveCamera, Environment } from "@react-three/drei"
+// Use a type-safe import for Three.js
 import * as THREE from "three"
 
 function Bottle({ animationComplete, setAnimationComplete }) {
@@ -159,3 +160,4 @@ export function BottleCanvas({ animationComplete, setAnimationComplete }) {
     </div>
   )
 }
+
